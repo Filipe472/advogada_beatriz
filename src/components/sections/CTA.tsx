@@ -1,0 +1,2 @@
+import { siteConfig } from "../../data/site"; import { Reveal } from "../ui/Reveal";
+export function CTA(){return <section className="cta cta-with-legal-bg"><Reveal className="container cta-layout"><div className="cta-inner"><span className="eyebrow">Próximo passo</span><h2>{siteConfig.cta.title.split("\n").map((line)=><span key={line}>{line}</span>)}</h2><p>{siteConfig.cta.description}</p></div></Reveal></section>}

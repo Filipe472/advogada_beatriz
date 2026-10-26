@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://beatrizfernanda.adv.br/sitemap.xml

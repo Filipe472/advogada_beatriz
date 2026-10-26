@@ -1,0 +1,6 @@
+"use client";
+import { useEffect, useState } from "react";
+import Link from "next/link";
+import { BrandMonogram } from "../ui/BrandMonogram";
+import { Button } from "../ui/Button";
+export function Header() { const [scrolled, setScrolled] = useState(false); const [open, setOpen] = useState(false); useEffect(() => { const fn=()=>setScrolled(window.scrollY>24); window.addEventListener("scroll",fn); return()=>window.removeEventListener("scroll",fn); }, []); const links=[['Início','#inicio'],['Sobre','#sobre'],['Atuação','#atuacao'],['Contato','#contato']]; return <header className={`site-header ${scrolled ? 'is-scrolled':''}`}><div className="container header-inner"><Link href="#inicio" className="header-brand" aria-label="Beatriz Fernanda, início"><BrandMonogram size={104}/><span className="header-brand-copy"><strong>BEATRIZ FERNANDA</strong><small>- Advocacia especializada -</small></span></Link><nav className={open?'nav-open':''}>{links.map(([label,href])=><Link key={href} href={href} onClick={()=>setOpen(false)}>{label}</Link>)}<Button href="#contato">Fale conosco</Button></nav><button className={`menu-toggle ${open?'is-open':''}`} onClick={()=>setOpen(!open)} aria-label={open?'Fechar menu':'Abrir menu'} aria-expanded={open}><i/><i/></button></div></header>; }
